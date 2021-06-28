@@ -6,30 +6,67 @@ namespace FizzBuzzC_
     {
         static void Main(string[] args)
         {
-            for (int i = 1; i < 101; i++)
+            Console.WriteLine("Please enter a number:");
+            var finalNumber = Convert.ToInt32(Console.ReadLine());
+            
+            for (var i = 1; i <= finalNumber; i++)
             {
-                if (i % 5 == 0 && i % 3 == 0)
+                var fizz = "";
+                var buzz = "";
+                var bang = "";
+                var fezz = "";
+                var bong = "";
+                if (i % 13 == 0)
                 {
-                    Console.WriteLine("FizzBuzz");
+                    fezz = "Fezz";
+                }
+                if (i % 11 == 0)
+                {
+                    bong = "Bong";
+                    var bongFinal = "";
+                    if (i % 17 == 0)
+                    {
+                        bongFinal = string.Concat(bong, fezz);
+                    }
+                    else
+                    {
+                        bongFinal = string.Concat(fezz, bong);
+                    }
+
+                    Console.WriteLine(bongFinal);
                     continue;
                 }
                 if (i % 3 == 0)
                 {
-                    Console.WriteLine("Fizz");
-                    continue;
+                    fizz = "Fizz";
                 }
                 if (i % 5 == 0)
                 {
-                    Console.WriteLine("Buzz");
-                    continue;
+                    buzz = "Buzz";
                 }
                 if (i % 7 == 0)
                 {
-                    Console.WriteLine("Bang");
-                    continue;
+                    bang = "Bang";
                 }
-                Console.WriteLine(i);
+                var final = "";
+                if (i % 17 == 0)
+                {
+                    final = string.Concat(bang, buzz, fezz, fizz);
+                }
+                else
+                {
+                    final = string.Concat(fizz, fezz, buzz, bang);
+                }
+                if (String.IsNullOrEmpty(final)) 
+                { 
+                    Console.WriteLine(i);
+                } 
+                else 
+                {
+                    Console.WriteLine(final);
+                }
             }
         }
     }
 }
+
